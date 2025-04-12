@@ -8,6 +8,8 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static ru.practicum.yandex.main.pages.LandingPageScooter.BASE_URL;
+
 
 @RunWith(Parameterized.class)
 public class TestOrderScooter {
@@ -46,7 +48,7 @@ public class TestOrderScooter {
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(BASE_URL);
         OrderPageScooter orderPageScooter = new OrderPageScooter(driver);
         orderPageScooter.clickButtonCookie();
 

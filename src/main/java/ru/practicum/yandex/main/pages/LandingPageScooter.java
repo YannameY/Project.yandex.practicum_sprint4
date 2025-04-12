@@ -13,6 +13,7 @@ public class LandingPageScooter {
 
     private static WebDriver driver;
     private By scrollToLandingScooter = By.id("accordion__heading-0");
+    public static final String BASE_URL = "https://qa-scooter.praktikum-services.ru/";
 
     public LandingPageScooter(WebDriver driver) {
         this.driver = driver;

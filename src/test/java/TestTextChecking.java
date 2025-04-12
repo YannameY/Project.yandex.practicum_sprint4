@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
+import static ru.practicum.yandex.main.pages.LandingPageScooter.BASE_URL;
 
 @RunWith(Parameterized.class)
 public class TestTextChecking {
@@ -45,7 +46,7 @@ public class TestTextChecking {
         //driver = new FirefoxDriver();
         driver.manage().window().maximize();
         LandingPageScooter landingPageScooter = new LandingPageScooter(driver);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(BASE_URL);
         landingPageScooter.clickButtonCookie();
         landingPageScooter.scrollToLanding();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
