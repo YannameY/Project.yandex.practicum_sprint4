@@ -1,13 +1,11 @@
-import MainPage.LandingPageScooter;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.practicum.yandex.main.pages.LandingPageScooter;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -41,10 +39,11 @@ public class TestTextChecking {
         };
     }
 
-    @BeforeClass
-    public static void setup() {
+    @Before
+    public void setup() {
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
+        driver.manage().window().maximize();
         LandingPageScooter landingPageScooter = new LandingPageScooter(driver);
         driver.get("https://qa-scooter.praktikum-services.ru/");
         landingPageScooter.clickButtonCookie();
@@ -56,15 +55,12 @@ public class TestTextChecking {
     @Test
     public void testAccordionDropdown() {
         LandingPageScooter.clickClosedDropdownByIndex(index);
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.id(String.format(LandingPageScooter.textInputLocatorFormat, index)))
-                );
         String actualText = LandingPageScooter.getTextFromTextInputByIndex(index);
         assertEquals("Неверный ожидаемый текст", expected, actualText);
     }
 
-    @AfterClass
-    public static void teardown() {
+    @After
+    public void teardown() {
         // Закрыть браузер
         driver.quit();
     }

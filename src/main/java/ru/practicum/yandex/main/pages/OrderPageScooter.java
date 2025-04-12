@@ -1,4 +1,4 @@
-package MainPage;
+package ru.practicum.yandex.main.pages;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
@@ -17,7 +17,7 @@ public class OrderPageScooter {
     }
 
     private By ButtonCookie = By.xpath(".//button[text()='да все привыкли']");
-    private By ButtonOrderOne = By.xpath("//button[@class='Button_Button__ra12g']"); //button[@class='Button_Button__ra12g']
+    private By ButtonOrderOne = By.xpath("//button[@class='Button_Button__ra12g']");
     private By ButtonOrderTwo = By.className("Button_Middle__1CSJM");
     private By NameField = By.xpath(".//input[@placeholder='* Имя']");
     private By LastNameField = By.xpath(".//input[@placeholder='* Фамилия']");

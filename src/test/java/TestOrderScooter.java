@@ -1,4 +1,5 @@
-import MainPage.OrderPageScooter;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.practicum.yandex.main.pages.OrderPageScooter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -6,7 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 @RunWith(Parameterized.class)
@@ -45,6 +45,7 @@ public class TestOrderScooter {
     public void setup() {
         driver = new ChromeDriver();
         //driver = new FirefoxDriver();
+        driver.manage().window().maximize();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         OrderPageScooter orderPageScooter = new OrderPageScooter(driver);
         orderPageScooter.clickButtonCookie();
